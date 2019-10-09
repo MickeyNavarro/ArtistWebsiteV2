@@ -14,14 +14,53 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Home</title>
+	
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+li a{
+  float: right;
+}
+li b {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li a:hover {
+  background-color: #111;
+}
+h2 {
+text-align: center;
+}
+</style>
 </head>
 <body>
-	<h2>RGO Crew</h2>
+
+<ul>
+  <li><b><a href="home">RGO Crew</a></b></li>
+  <li><a href="register">Register</a></li>
+  <li><a href="login">Login</a></li>
+</ul>
+
 	<c:if test ="${user.username != ''}"> 	
-		<p>Welcome to the crew, ${user.username}!</p>
+		<h2>Welcome to the crew, ${user.username}!</h2>
 	</c:if>
-	<a href="register">Register</a>
-	<a href="login">Login</a>
-	
+	<c:if test ="${user.username == ''}"> 	
+		<h2>Welcome to the site!</h2>
+	</c:if>
 </body>
 </html>
