@@ -24,13 +24,13 @@ public class UserController {
 	//home page 
 		@RequestMapping(path="/home", method=RequestMethod.GET)
 		public ModelAndView displayHomePage() { 
-			return new ModelAndView("homePage", "user", new User("","","","","",""));
+			return new ModelAndView("homePage", "user", new User(0,"","","","","","",null));
 			}
 	
 	//registration mechanisms
 		@RequestMapping(path="/register", method = RequestMethod.GET) 
 		public ModelAndView displayRegistrationPage() { 
-			return new ModelAndView("registrationPage", "user", new User("","","","","",""));
+			return new ModelAndView("registrationPage", "user", new User(0,"","","","","","",null));
 			}
 		  
 		@RequestMapping(path="/registerSuccess", method = RequestMethod.POST)
