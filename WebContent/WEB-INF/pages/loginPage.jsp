@@ -67,7 +67,6 @@ li a:hover {
 					<input type = "submit" value = "Submit"/>
 				</td>
 			</table>
-		<form:errors path="*"/>
 	</form:form>
 </body>
 </html>

@@ -48,11 +48,11 @@ public class UserController {
 	//login mechanisms
 		@RequestMapping(path="/login", method = RequestMethod.GET) 
 		public ModelAndView displayLoginPage() { 
-			return new ModelAndView("loginPage", "user", new Credentials("", ""));
+			return new ModelAndView("loginPage", "user", new User(0,"","","","","","",null));
 			}
 		  
 		@RequestMapping(path="/loginSuccess", method = RequestMethod.POST)
-		public ModelAndView loginUser(@Valid @ModelAttribute("user") Credentials user, BindingResult result) { 
+		public ModelAndView loginUser(@ModelAttribute("user") User user, BindingResult result) { 
 			//validate the form 
 			if(result.hasErrors()) { 
 				//return to login form to show login errors
@@ -60,7 +60,7 @@ public class UserController {
 			}
 			
 			//return to the home page to show that login was successful
-			return new ModelAndView("homePage", "users", user); 
+			return new ModelAndView("homePage", "user", user); 
 		}
 	
 	
