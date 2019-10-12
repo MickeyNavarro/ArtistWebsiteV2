@@ -6,12 +6,13 @@
 //MODEL 
 //this is the event object model; this page will hold the attributes, constructors, getters, and setters for an event
 
+//Resource: http://zetcode.com/java/hibernatevalidator/
 package com.model;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.springframework.format.annotation.DateTimeFormat;
+import org.hibernate.validator.constraints.NotEmpty;
 
 public class Event {
 	//attributes
@@ -32,10 +33,11 @@ public class Event {
 	private String location; 
 	
 	@NotNull(message = "Time cannot be null.")
+	@NotEmpty(message = "Time cannot be empty.") //added due to no size constraint
 	private String time; 
 	
 	@NotNull(message = "Date cannot be null.")
-	@DateTimeFormat(pattern = "dd/MM/yyyy") //used to make sure the date follows this specific format
+	@NotEmpty(message = "Date cannot be empty.") //added due to no size constraint
 	private String date;
 
 	public Event() {

@@ -9,8 +9,8 @@
 package com.model;
 
 
-import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class User {
@@ -32,12 +32,12 @@ public class User {
 	private String username; 
 	
 	@NotNull(message = "Email cannot be null.")
-	//@Email(message = "Email must be valid.")
-	@Size(min=3, message = "Email cannot be an empty.")
+	@Pattern(regexp="^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\\.[a-zA-Z.]{2,5}", message="Email must be valid.") 
 	private String email; 
 	
 	@NotNull(message = "Phone Number cannot be null.")
-	@Size(min=10, max=10, message="Phone Number must be a valid length of 10 characters.")
+	@Pattern(regexp="(^$|[0-9]{10})", message="Phone Number must consist of numbers.")
+	@Size(min=10, max=10, message="Phone Number must be a valid length of 10 numbers.")
 	private String phoneNumber; 
 	
 	@NotNull(message = "Password cannot be null.")
@@ -60,12 +60,12 @@ public class User {
 		this.password = "";
 		this.role = null; 
 	}
-	
+
 	public User(int iD,
 				@NotNull(message = "First name cannot be null.") @Size(min = 3, max = 30, message = "First name must be between 3 and 30 characters.") String firstName,
 				@NotNull(message = "Last name cannot be null.") @Size(min = 3, max = 30, message = "Last name must be between 3 and 30 characters.") String lastName,
 				@NotNull(message = "Username cannot be null.") @Size(min = 3, max = 30, message = "Username must be between 3 and 30 characters.") String username,
-				@NotNull(message = "Email cannot be null.") @Size(min = 3, message = "Email cannot be an empty.") String email,
+				@NotNull(message = "Email cannot be null.") @Pattern(regexp = "^[a-zA-Z0-9._-]+@[a-zA-Z0-9-]+\\.[a-zA-Z.]{2,5}", message = "Email must be valid.") String email,
 				@NotNull(message = "Phone Number cannot be null.") @Size(min = 10, max = 10, message = "Phone Number must be a valid length of 10 characters.") String phoneNumber,
 				@NotNull(message = "Password cannot be null.") @Size(min = 3, max = 30, message = "Password must be between 3 and 30 characters.") String password,
 				String role) {
@@ -79,6 +79,8 @@ public class User {
 			this.password = password;
 			this.role = role;
 		}
+
+
 
 	//getters and setters 
 
