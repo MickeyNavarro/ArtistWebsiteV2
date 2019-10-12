@@ -4,7 +4,9 @@
 	//This is our own work. 
 	
 	//VIEW 
-	//this is the admin events page for the website; it will simply ask for the display all of the events through the view of the admin; the admin user can access the CRUD operations of the events here --%>
+	//this is the admin events page for the website; it will simply ask for the display all of the events through the view of the admin; the admin user can access the CRUD operations of the events here 
+	
+	admin functionality has yet to be inputted so this page is available to all the users--%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri = "http://www.springframework.org/tags/form" prefix="form" %>
