@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.model.User;
-import com.model.Credentials;
 
 @Controller 
 @RequestMapping("/user")
