@@ -7,13 +7,14 @@
 	//this is the admin events page for the website; it will simply ask for the display all of the events through the view of the admin; the admin user can access the CRUD operations of the events here --%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri = "http://www.springframework.org/tags/form" prefix="form" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Admin Events Page</title>
+	<meta charset="UTF-8">
+	<title>Admin Events Page</title>
+
 <style>
 ul {
   list-style-type: none;
@@ -46,6 +47,13 @@ li a:hover {
 </style>
 </head>
 <body>
+<ul>
+  <li><b>RGO Crew</b></li>
+  <li><b><a href="/ArtistWebsiteV2/user/home">RGO Crew</a></b></li>
+  <li><a href="/ArtistWebsiteV2/user/register">Register</a></li>
+  <li><a href="/ArtistWebsiteV2/user/login">Login</a></li>
+</ul>
+
 <h1>Admin Events Page</h1>
 <h2>List of Events</h2>
 		<table> 
@@ -66,7 +74,6 @@ li a:hover {
 			</tr>
 		</c:forEach>
 			<tr>
-			
 				<td colspan="2"> 
 					<a href="createEvent">Create New Event</a>
 				</td>
