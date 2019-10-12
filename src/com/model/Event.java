@@ -48,7 +48,7 @@ public class Event {
 		this.time = "";
 		this.date = "";
 	}
-
+	
 	public Event(int iD,
 			@NotNull(message = "Name cannot be null.") @Size(min = 3, max = 45, message = "Name must be between 3 and 45 characters.") String name,
 			@NotNull(message = "Type cannot be null.") @Size(min = 3, max = 45, message = "Type must be between 3 and 45 characters.") String type,
@@ -63,7 +63,9 @@ public class Event {
 		this.time = time;
 		this.date = date;
 	}
-	
+
+
+
 	//getters and setters
 
 	public int getID() {
