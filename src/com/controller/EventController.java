@@ -46,6 +46,9 @@ public class EventController {
 					return new ModelAndView("createEventPage", "event", event); 
 				}
 				
+				//Temporary until database is set up
+				service.test();
+				
 				//Display a list of events 
 					//this is a temp output to mimic the final outcome 
 				List<Event> events = new ArrayList<Event>(); 
