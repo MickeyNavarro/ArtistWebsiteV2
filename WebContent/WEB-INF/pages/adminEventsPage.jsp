@@ -16,37 +16,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Admin Events Page</title>
-
 <style>
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-li a{
-  float: right;
-}
-li b {
-  float: left;
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-li a:hover {
-  background-color: #111;
+body {
+	background-image: url('resources/ezgif.com-video-to-gif.gif');
+	background-size: cover;
 }
 </style>
+
 </head>
 <body>
 <ul>
