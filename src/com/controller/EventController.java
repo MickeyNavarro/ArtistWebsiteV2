@@ -19,12 +19,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.business.EventBusinessInterface;
 import com.model.Event;
 import com.model.User;
 
 @Controller 
-@RequestMapping("/event")
+//@RequestMapping("/event")
 public class EventController {
+	//SpringBean declaration
+	EventBusinessInterface service;
+	
+	public void setEventService(EventBusinessInterface service) {
+		this.service = service;
+	}
 	//create an event mechanisms
 			@RequestMapping(path="/createEvent", method = RequestMethod.GET) 
 			public ModelAndView displayEventCreationPage() { 
@@ -38,6 +45,9 @@ public class EventController {
 					//return to create event form to show any event creation errors
 					return new ModelAndView("createEventPage", "event", event); 
 				}
+				
+				//Temporary until database is set up
+				service.test();
 				
 				//Display a list of events 
 					//this is a temp output to mimic the final outcome 
