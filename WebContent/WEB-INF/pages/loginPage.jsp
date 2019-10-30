@@ -13,6 +13,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Login</title>
+<style>
+body {
+	background-image: url('resources/ezgif.com-video-to-gif.gif');
+	background-size: cover;
+}
+</style>
 </head>
 <body>
 	<h2>Login</h2>
@@ -31,6 +37,10 @@
 					<input type = "submit" value = "Submit"/>
 				</td>
 			</table>
+							<td>
+				<p>Don't have an account? Sign up <a href="register">here</a></p>
+				</td>
+		<form:errors path="*"/>
 	</form:form>
 </body>
 </html>

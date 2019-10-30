@@ -5,9 +5,9 @@ This website is created by Almicke "Mickey" Navarro and Emily Quevedo. We are bo
 
 We are currently on Milestone 3. This Milestone requires us to demonstrate the use of the SpringBeans, Spring Core, and the Dependency Injection. Through that, we have created...
 
-  Model: User, Credentials, Event
+  Model: User, Event
   
-  View: homePage, loginPage, registrationPage
+  View: homePage, loginPage, registrationPage, createEventPage, adminEventsPage
   
   Controller: UserController, EventController
   
