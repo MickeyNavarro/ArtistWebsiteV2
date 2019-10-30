@@ -39,7 +39,7 @@
         <property name="password" value="root" />
     </bean>
    
-    <!-- Setup Transaction Manager -->
+   <!-- Setup Transaction Manager -->
     <aop:config>
         <aop:pointcut id="allServiceMethods" expression="execution(* com.gcu.business.*Interface.*(..))" />
         <aop:advisor advice-ref="txAdvice" pointcut-ref="allServiceMethods" />
@@ -60,6 +60,7 @@
 		<property name="dataSource" ref="dataSource" />
  	</bean>
  	
+
 	 <bean id="eventService" class="com.business.EventBusinessService">
     </bean>
     
@@ -75,5 +76,6 @@
 	</bean>
 
     <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"/>
+
  	<mvc:annotation-driven/>
 </beans>

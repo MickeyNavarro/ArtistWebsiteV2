@@ -31,7 +31,6 @@ public class EventController {
 	public void setEventService(EventBusinessInterface service) {
 		this.service = service;
 	}
-	
 	//create an event mechanisms
 			@RequestMapping(path="/createEvent", method = RequestMethod.GET) 
 			public ModelAndView displayEventCreationPage() { 
