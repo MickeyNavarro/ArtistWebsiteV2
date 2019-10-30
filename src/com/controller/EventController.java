@@ -19,12 +19,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.business.EventBusinessInterface;
 import com.model.Event;
-import com.model.User;
 
 @Controller 
-@RequestMapping("/event")
+//@RequestMapping("/event")
 public class EventController {
+	//SpringBean declaration
+	EventBusinessInterface service;
+	
+	public void setEventService(EventBusinessInterface service) {
+		this.service = service;
+	}
+	
 	//create an event mechanisms
 			@RequestMapping(path="/createEvent", method = RequestMethod.GET) 
 			public ModelAndView displayEventCreationPage() { 
@@ -37,14 +44,13 @@ public class EventController {
 				if(result.hasErrors()) { 
 					//return to create event form to show any event creation errors
 					return new ModelAndView("createEventPage", "event", event); 
-				}
+				} 
 				
-				//Display a list of events 
-					//this is a temp output to mimic the final outcome 
-				List<Event> events = new ArrayList<Event>(); 
-				events.add(event);
-				events.add(new Event(0,"The Crew Tour", "Concert", "Phoenix, AZ", "7:00PM", "January 30, 2020")); 
+				//call the order business service to create the event
+				service.create(event); 
 				
+				//call the order business service to return a list of events
+				List<Event> events = service.findAll(); 
 				
 				//return to the admin events page to show that event creation was successful
 					//no admin modules have been create yet so it will return to an temp. admin events page 

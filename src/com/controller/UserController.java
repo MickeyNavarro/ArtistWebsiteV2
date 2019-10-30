@@ -15,11 +15,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.business.UserBusinessInterface;
 import com.model.User;
 
 @Controller 
-@RequestMapping("/user")
+//@RequestMapping("/user")
 public class UserController {
+	//SpringBean declaration
+	UserBusinessInterface service;
+	
+	public void setUserService(UserBusinessInterface service) {
+		this.service = service;
+	}
 	//home page 
 		@RequestMapping(path="/home", method=RequestMethod.GET)
 		public ModelAndView displayHomePage() { 
@@ -40,6 +47,9 @@ public class UserController {
 				return new ModelAndView("registrationPage", "user", user); 
 			}
 			
+			//Temporary until database is set up
+			service.registerTest();
+			
 			//return to the login page to show that registration was successful
 			return new ModelAndView("loginPage", "user", user); 
 		}
@@ -57,6 +67,9 @@ public class UserController {
 				//return to login form to show login errors
 				return new ModelAndView("loginPage", "user", user); 
 			}
+			
+			//Temporary until database is set up
+			service.loginTest();
 			
 			//return to the home page to show that login was successful
 			return new ModelAndView("homePage", "user", user); 
