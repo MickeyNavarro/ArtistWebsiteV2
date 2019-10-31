@@ -50,6 +50,7 @@ body {
 					<input type = "submit" value = "Submit"/>
 				</td>
 			</table>
+	<font color="red"><p>${error}</p></font>
 	</form:form>
 </body>
 </html>
