@@ -14,6 +14,7 @@ import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -45,15 +46,28 @@ public class EventController {
 					return new ModelAndView("createEventPage", "event", event); 
 				} 
 				
-				//call the order business service to create the event
-				service.create(event); 
+				//call the order business service to create the event & check if successful
+				if (service.create(event)) {
 				
-				//call the order business service to return a list of events
-				List<Event> events = service.findAll(); 
-				
-				//return to the admin events page to show that event creation was successful
-					//no admin modules have been create yet so it will return to an temp. admin events page 
-				return new ModelAndView("adminEventsPage", "events", events); 
+					//call the order business service to return a list of events
+					List<Event> events = service.findAll(); 
+					
+					//return to the admin events page to show that event creation was successful
+						//no admin modules have been create yet so it will return to an temp. admin events page 
+					return new ModelAndView("adminEventsPage", "events", events); 
+				}
+				else { 
+					//if not, 
+					
+					//create a ModelAndView 
+					ModelAndView mv = new ModelAndView("createEventPage", "event", event); 
+					
+					//create new object to output that there was a database connection error
+					mv.addObject("error", new String("Could not connect to database!")); 
+					
+					//return to create event form page to show the connection error
+					return mv; 
+				}
 			}
 
 }
