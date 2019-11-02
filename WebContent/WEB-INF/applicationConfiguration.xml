@@ -58,18 +58,22 @@
  	<!-- Application Spring Beans -->
 	 <bean id="eventDataService" class="com.data.EventDataService">
 		<property name="dataSource" ref="dataSource" />
- 	</bean>
+ 	 </bean>
  	
 
 	 <bean id="eventService" class="com.business.EventBusinessService">
-    </bean>
+    	 </bean>
     
     	<bean id = "eventController" class="com.controller.EventController">
 		<property name="eventService" ref="eventService"/>
 	</bean>
 	
-		 <bean id="userService" class="com.business.UserBusinessService">
-    </bean>
+	 <bean class="com.data.UserDataService" id="userDataService">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	 
+	<bean id="userService" class="com.business.UserBusinessService">
+    	</bean>
     
     	<bean id = "userController" class="com.controller.UserController">
 		<property name="userService" ref="userService"/>
