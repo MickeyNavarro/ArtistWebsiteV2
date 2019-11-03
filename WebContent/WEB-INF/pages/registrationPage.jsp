@@ -17,6 +17,7 @@
 body {
 	background-image: url('resources/ezgif.com-video-to-gif.gif');
 	background-size: cover;
+	padding: 150px;
 }
 </style>
 </head>
